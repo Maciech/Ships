@@ -9,10 +9,11 @@ public class Main {
     static int liczbaJednoplatowcow = 4;
     static int rozmiarPlanszy = 10;
     static Boolean[][] plansza = new Boolean[rozmiarPlanszy][rozmiarPlanszy];
-
+    static int[][] planszaInt = new int[rozmiarPlanszy][rozmiarPlanszy];
 
     public static void main(String[] args) {
 
+        Rozmieszczenie.placing(planszaInt);
         try {
             rozmieszczenie(plansza, 4);
             rozmieszczenie(plansza, 3);
@@ -27,8 +28,6 @@ public class Main {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-
 
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
