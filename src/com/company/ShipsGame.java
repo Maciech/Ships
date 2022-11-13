@@ -49,27 +49,34 @@ public class ShipsGame extends FunctionalMethods{
     }
 
     public void createShip(){
-        int ShipValue = getRandomNumber(4);
-        CellProperties cellProperties = cellObject[getRandomNumber(9)][getRandomNumber(9)];
-        getNeighbours(cellProperties);
-        if (ShipValue == 0){
-            createShip();
-        } if (ShipValue == 1 && !cellProperties.isShip && emptyArea && monoPlane != 0){
-            cellProperties.isShip = true;
-            monoPlane--;
-        } if (ShipValue == 2 && !cellProperties.isShip && emptyArea && biPlane != 0) {
-            cellProperties.isShip = true;
-            biPlane--;
-        } if (ShipValue == 3 && !cellProperties.isShip && emptyArea && triPlane != 0){
-            cellProperties.isShip = true;
-            triPlane--;
-        } if (ShipValue == 4 && !cellProperties.isShip && emptyArea && quadPlane != 0){
-            cellProperties.isShip = true;
-            quadPlane--;
+        if (monoPlane != 0 || biPlane != 0 || triPlane != 0 || quadPlane != 0) {
+            int ShipValue = getRandomNumber(4);
+            CellProperties cellProperties = cellObject[getRandomNumber(9)][getRandomNumber(9)];
+            getNeighbours(cellProperties);
+            if (ShipValue == 0) {
+                createShip();
+            } else if (ShipValue == 1 && !cellProperties.isShip && emptyArea && monoPlane != 0) {
+                cellProperties.isShip = true;
+                monoPlane--;
+                createShip();
+            } else if (ShipValue == 2 && !cellProperties.isShip && emptyArea && biPlane != 0) {
+                cellProperties.isShip = true;
+                biPlane--;
+                createShip();
+            } else if (ShipValue == 3 && !cellProperties.isShip && emptyArea && triPlane != 0) {
+                cellProperties.isShip = true;
+                triPlane--;
+                createShip();
+            }else if (ShipValue == 4 && !cellProperties.isShip && emptyArea && quadPlane != 0) {
+                cellProperties.isShip = true;
+                quadPlane--;
+                createShip();
+            } else if (cellProperties.isShip || !emptyArea)
+                createShip();
+            }
         }
 
 
-    }
 
     private void createNeighbourShip(CellProperties cellProperties){
 
