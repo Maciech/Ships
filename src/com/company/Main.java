@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.Random;
 
-public class Main {
+public class Main extends ShipsGame{
     static int liczbaCzteroplatowcow = 1;
     static int liczbaTrzyplatowcow = 2;
     static int liczbaDwuplatowcow = 3;
@@ -13,28 +13,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Rozmieszczenie.placing(planszaInt);
-        try {
-            rozmieszczenie(plansza, 4);
-            rozmieszczenie(plansza, 3);
-            rozmieszczenie(plansza, 3);
-            rozmieszczenie(plansza, 2);
-            rozmieszczenie(plansza, 2);
-            rozmieszczenie(plansza, 2);
-            rozmieszczenie(plansza, 1);
-            rozmieszczenie(plansza, 1);
-            rozmieszczenie(plansza, 1);
-            rozmieszczenie(plansza, 1);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        ShipsGame shipsGame = new ShipsGame();
+        shipsGame.createGame();
 
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                System.out.print(plansza[i][j] + " ");
-            }
-            System.out.println();
-        }
+
+
     }
 
 
