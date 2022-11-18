@@ -8,4 +8,9 @@ public class FunctionalMethods {
         Random random = new Random();
         return random.nextInt(max);
     }
+    public int getRandomNumber(int min, int max){
+        Random random = new Random();
+        int wynik = random.nextInt(max + 1 - min) + min;
+        return wynik;
+    }
 }

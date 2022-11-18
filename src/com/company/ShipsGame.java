@@ -60,6 +60,7 @@ public class ShipsGame extends FunctionalMethods{
                 monoPlane--;
                 createShip();
             } else if (ShipValue == 2 && !cellProperties.isShip && emptyArea && biPlane != 0) {
+
                 cellProperties.isShip = true;
                 biPlane--;
                 createShip();
@@ -78,8 +79,13 @@ public class ShipsGame extends FunctionalMethods{
 
 
 
-    private void createNeighbourShip(CellProperties cellProperties){
-
+    private void createNeighbourShip(CellProperties cellProperties,int shipDimension){
+        int randomAround;
+        int randomX = getRandomNumber(cellProperties.x-1, cellProperties.x+1);
+        int randomY = getRandomNumber(cellProperties.y-1, cellProperties.y+1);
+        for (int i = 1; i < shipDimension; i++){
+            cellProperties = cellObject[getRandomNumber(cellProperties.x)][getRandomNumber(cellProperties.y)];
+        }
 
     }
     }
