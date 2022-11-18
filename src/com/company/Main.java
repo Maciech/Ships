@@ -14,7 +14,7 @@ public class Main extends ShipsGame{
     public static void main(String[] args) {
         FunctionalMethods functionalMethods = new FunctionalMethods();
 
-    
+
     ShipsGame shipsGame = new ShipsGame();
        shipsGame.createGame();
 
